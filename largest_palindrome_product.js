@@ -6,6 +6,7 @@
  *                   the palindromeNumber and the palindromeNumber itself.
  */
 module.exports = function(digits){
+
   var factor_0 = 0;
   var factor_1 = 0;
   var palindromeNumber = 0;
@@ -13,43 +14,29 @@ module.exports = function(digits){
   // do your work here
 
   var i = 0;
-  var possiblePalindrome;
+  var maxValue = 0;
+  var possiblePalindrome = 0;
   var maxValueBuilder = [];
   var anyPalindrome = [];
-
+  var cursor = 0;
   var checkPalindrome = function( value ){
 
 
     var checker = value.toString();
-    var cursor = checker.length;
 
-    if( !(cursor % 2 === 0) ){
+    if( !(checker.length % 2 === 0) ){
+
       return false;
+
     } else {
 
-      var factor1 = [];
-      var factor2 = [];
-      var temp = [];
-      var i = 0;
+      for ( var i = 0; i < (checker.length/2); i++ ){
 
-      for( i = 0; i < (cursor/2); i++ ){
-        factor1.push( checker.charAt(i) );
-      }
-       for( i = (cursor/2); i < cursor; i++ ){
-        factor2.push( checker.charAt(i) );
-      }
+        if( !(checker.charAt(i) === checker.charAt(checker.length - i - 1) ) ){
 
-      for( i = 1; i <= factor2.length; i--){
-        temp[i] = factor2[ factor2.length - i ];
-      }
-      factor2 = temp;
-
-      for( i = 0; i <= (factor1.length-1); i++){
-
-        if( !( factor1[i] === factor2[i] ) ){
           return false;
-        }
 
+        }
       }
 
       return true;
@@ -58,42 +45,49 @@ module.exports = function(digits){
 
   };
 
+
   for ( i =0; i < digits; i++){
     maxValueBuilder.push(9);
   }
 
-  var maxValue = 0;
   maxValue = parseInt( maxValueBuilder.join('') );
 
-  var cursor = 0;
-  for( cursor = 0; cursor < maxValue; cursor++ ) {
 
-    for( i = 0; i < maxValue; i++){
 
-      for ( j = 0; j < maxValue; j++ ){
+  for( i = 0; i <= maxValue; i++){
 
-        possiblePalindrome = i * j;
-        if( checkPalindrome( possiblePalindrome ) ){
+    for ( j = 0; j <= maxValue; j++ ){
 
-          anyPalindrome.push( possiblePalindrome );
-        }
+      possiblePalindrome = i * j;
+
+      if( checkPalindrome( possiblePalindrome ) ){
+
+        anyPalindrome.push( possiblePalindrome );
+        factor_0 = i;
+        factor_1 = j;
 
       }
-
     }
-    var largest = 0;
-    for( i = 0; i < (anyPalindrome.length - 1); i++){
-      if( anyPalindrome[i] > largest){
-        largest = anyPalindrome[i];
-      }
-    }
-    return largest;
-
   }
+
+
+  for( i = 0; i < (anyPalindrome.length - 1); i++){
+
+    if( anyPalindrome[i] > palindromeNumber ){
+
+      palindromeNumber = anyPalindrome[i];
+
+    }
+  }
+
+
+
+
 
   return {
     factor_0 : factor_0,
     factor_1 : factor_1,
     palindromeNumber : palindromeNumber
   };
+
 };
