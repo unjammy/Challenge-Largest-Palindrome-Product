@@ -29,15 +29,30 @@ module.exports = function(digits){
 
       var factor1 = [];
       var factor2 = [];
+      var temp = [];
       var i = 0;
+
       for( i = 0; i < (cursor/2); i++ ){
         factor1.push( checker.charAt(i) );
       }
        for( i = (cursor/2); i < cursor; i++ ){
-        factor1.push( checker.charAt(i) );
+        factor2.push( checker.charAt(i) );
       }
 
+      for( i = 1; i <= factor2.length; i--){
+        temp[i] = factor2[ factor2.length - i ];
+      }
+      factor2 = temp;
 
+      for( i = 0; i <= (factor1.length-1); i++){
+
+        if( !( factor1[i] === factor2[i] ) ){
+          return false;
+        }
+
+      }
+
+      return true;
 
     }
 
