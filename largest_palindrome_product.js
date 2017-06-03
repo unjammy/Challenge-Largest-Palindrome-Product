@@ -12,7 +12,23 @@ module.exports = function(digits){
 
   // do your work here
 
+  var i = 0;
+  var maxValueBuilder = [];
 
+  for ( i =0; i < digits; i++){
+    maxValueBuilder.push(9);
+  }
+
+  var maxValue = 0;
+  maxValue = parseInt( maxValueBuilder.join('') );
+
+  var cursor = 0;
+  for( cursor = 0; cursor < maxValue; cursor++ ) {
+
+    factor_0++;
+
+
+  }
 
   return {
     factor_0 : factor_0,
