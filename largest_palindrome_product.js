@@ -14,10 +14,12 @@ module.exports = function(digits){
   // do your work here
 
   var i = 0;
+  var j = 0;
   var maxValue = 0;
   var possiblePalindrome = 0;
   var maxValueBuilder = [];
   var anyPalindrome = [];
+
   var checkPalindrome = function( value ){
 
 
@@ -29,9 +31,9 @@ module.exports = function(digits){
 
     } else {
 
-      for ( var i = 0; i < (checker.length/2); i++ ){
+      for ( i = 0; i < (checker.length/2); i++ ){
 
-        if( !(checker.charAt(i) === checker.charAt(checker.length - i - 1) ) ){
+        if( !( checker.charAt(i) === checker.charAt(checker.length - i - 1)) ){
 
           return false;
 
@@ -41,7 +43,6 @@ module.exports = function(digits){
       return true;
 
     }
-
   };
 
 
@@ -78,9 +79,6 @@ module.exports = function(digits){
 
     }
   }
-
-
-
 
 
   return {
