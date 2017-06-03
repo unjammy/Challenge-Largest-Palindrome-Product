@@ -18,7 +18,6 @@ module.exports = function(digits){
   var possiblePalindrome = 0;
   var maxValueBuilder = [];
   var anyPalindrome = [];
-  var cursor = 0;
   var checkPalindrome = function( value ){
 
 
