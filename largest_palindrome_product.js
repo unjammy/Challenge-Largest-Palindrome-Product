@@ -13,7 +13,9 @@ module.exports = function(digits){
   // do your work here
 
   var i = 0;
+  var possiblePalindrome;
   var maxValueBuilder = [];
+  var anyPalindrome = [];
 
   for ( i =0; i < digits; i++){
     maxValueBuilder.push(9);
@@ -25,7 +27,18 @@ module.exports = function(digits){
   var cursor = 0;
   for( cursor = 0; cursor < maxValue; cursor++ ) {
 
-    factor_0++;
+    for( i = 0; i < maxValue; i++){
+
+      for ( j = 0; i < maxValue; j++ ){
+
+        possiblePalindrome = i * j;
+        if( palindrome( possiblePalindrome ) ){
+          anyPalindrome.push( possiblePalindrome );
+        }
+
+      }
+
+    }
 
 
   }
