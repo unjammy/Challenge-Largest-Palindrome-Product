@@ -74,13 +74,20 @@ module.exports = function(digits){
 
         possiblePalindrome = i * j;
         if( checkPalindrome( possiblePalindrome ) ){
+
           anyPalindrome.push( possiblePalindrome );
         }
 
       }
 
     }
-
+    var largest = 0;
+    for( i = 0; i < (anyPalindrome.length - 1); i++){
+      if( anyPalindrome[i] > largest){
+        largest = anyPalindrome[i];
+      }
+    }
+    return largest;
 
   }
 
