@@ -17,6 +17,32 @@ module.exports = function(digits){
   var maxValueBuilder = [];
   var anyPalindrome = [];
 
+  var checkPalindrome = function( value ){
+
+
+    var checker = value.toString();
+    var cursor = checker.length;
+
+    if( !(cursor % 2 === 0) ){
+      return false;
+    } else {
+
+      var factor1 = [];
+      var factor2 = [];
+      var i = 0;
+      for( i = 0; i < (cursor/2); i++ ){
+        factor1.push( checker.charAt(i) );
+      }
+       for( i = (cursor/2); i < cursor; i++ ){
+        factor1.push( checker.charAt(i) );
+      }
+
+
+
+    }
+
+  };
+
   for ( i =0; i < digits; i++){
     maxValueBuilder.push(9);
   }
@@ -29,10 +55,10 @@ module.exports = function(digits){
 
     for( i = 0; i < maxValue; i++){
 
-      for ( j = 0; i < maxValue; j++ ){
+      for ( j = 0; j < maxValue; j++ ){
 
         possiblePalindrome = i * j;
-        if( palindrome( possiblePalindrome ) ){
+        if( checkPalindrome( possiblePalindrome ) ){
           anyPalindrome.push( possiblePalindrome );
         }
 
